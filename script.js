@@ -79,9 +79,10 @@ const makeRequest = async () => {
     let url = 'https://quizapi.io/api/v1/questions?apiKey=GJpmwF0WZUXozYXYjaQZF9187gwFj9bo54r84QLF&Limit=10&difficulty=easy'
     const res = await fetch(url)
     const questions = await res.json()
+    let index = 1;
     for(let question of questions)
     {
-        let q = new Question(question["id"],question["question"],question["answers"],question["correct_answers"],question["explanation"])
+        let q = new Question(question["id"],index++ +". "+ question["question"],question["answers"],question["correct_answers"],question["explanation"])
     }
 }
 makeRequest()
