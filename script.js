@@ -45,7 +45,6 @@ class Question{
                 this.markedAnswer = this.options[opt]
             }
             let label = document.createElement('label')
-            label.setAttribute('for',this.options[opt])
             label.textContent = this.options[opt]
             option.append(radio,label)
             optionsList.appendChild(option)
@@ -61,8 +60,21 @@ class Question{
 
     validate(element)
     {
+        attemptted++
         let option = document.getElementById(this.markedElement)
-        this.correctAnswer == this.markedAnswer ? option.classList.add('correct') : option.classList.add('wrong')
+        if(this.correctAnswer == this.markedAnswer)
+        {
+            option.classList.add('correct')
+            score++;
+        }
+        else option.classList.add('wrong')
+        if(attemptted == total)
+        {
+            console.log(score)
+            document.getElementById('scored').textContent = score
+            let scoreBoard = document.getElementById('score')
+            scoreBoard.style.visibility = 'visible'
+        }
         let explanation = document.createElement('div')
         let span = document.createElement('span')
         span.textContent = `correct answer: ${this.correctAnswer}`
@@ -73,12 +85,16 @@ class Question{
     }
 }
 
-var quizPage = document.getElementById("quiz_page")
-
+var quizPage = document.getElementById('quiz_page')
+var total = document.getElementById('total')
+var attemptted = 0;
+var score = 0;
+var questions = null
 const makeRequest = async () => {
     let url = 'https://quizapi.io/api/v1/questions?apiKey=GJpmwF0WZUXozYXYjaQZF9187gwFj9bo54r84QLF&Limit=10&difficulty=easy'
     const res = await fetch(url)
-    const questions = await res.json()
+    questions = await res.json()
+    total.textContent = questions.length
     let index = 1;
     for(let question of questions)
     {
