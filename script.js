@@ -7,7 +7,7 @@ class Question{
         this.correctAnswer = null;
         for(let crct in correctAnswer)
         {
-            if(correctAnswer[crct] == 'true')
+            if(correctAnswer[crct] == 'true' || correctAnswer[crct] == 'True')
             {
                 this.correctAnswer = this.options[crct.split("_correct")[0]]
             }
@@ -76,7 +76,7 @@ class Question{
 var quizPage = document.getElementById("quiz_page")
 
 const makeRequest = async () => {
-    let url = 'https://quizapi.io/api/v1/questions?apiKey=GJpmwF0WZUXozYXYjaQZF9187gwFj9bo54r84QLF&category=Linux&Limit=10&difficulty=easy'
+    let url = 'https://quizapi.io/api/v1/questions?apiKey=GJpmwF0WZUXozYXYjaQZF9187gwFj9bo54r84QLF&Limit=10&difficulty=easy'
     const res = await fetch(url)
     const questions = await res.json()
     for(let question of questions)
