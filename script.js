@@ -4,14 +4,7 @@ class Question{
         this.id = id
         this.questionText = questionText
         this.options = options
-        this.correctAnswer = null;
-        for(let crct in correctAnswer)
-        {
-            if(correctAnswer[crct] == 'true' || correctAnswer[crct] == 'True')
-            {
-                this.correctAnswer = this.options[crct.split("_correct")[0]]
-            }
-        }
+        this.correctAnswer = correctAnswer;
         this.markedElement = null;
         this.markedAnswer = null;
         this.explanation = explanation == null ? 'No explanation' : explanation;
@@ -60,24 +53,27 @@ class Question{
 
     validate(element)
     {
-        attemptted++
+        if(this.markedAnswer == null)
+        {
+            return
+        }
+        attempttedQues++
         let option = document.getElementById(this.markedElement)
-        if(this.correctAnswer == this.markedAnswer)
+        if(this.options[this.correctAnswer] == this.markedAnswer)
         {
             option.classList.add('correct')
             score++;
+            updateScore()
         }
         else option.classList.add('wrong')
-        if(attemptted == total)
+        updateProgress()
+        if(attempttedQues == questions.length)
         {
-            console.log(score)
-            document.getElementById('scored').textContent = score
-            let scoreBoard = document.getElementById('score')
-            scoreBoard.style.visibility = 'visible'
+            alert(score)
         }
         let explanation = document.createElement('div')
         let span = document.createElement('span')
-        span.textContent = `correct answer: ${this.correctAnswer}`
+        span.textContent = `correct answer: ${this.options[this.correctAnswer]}`
         explanation.classList.add('explanation')
         explanation.textContent = this.explanation
         document.getElementById(this.id).append(span,explanation)
@@ -87,18 +83,57 @@ class Question{
 
 var quizPage = document.getElementById('quiz_page')
 var total = document.getElementById('total')
-var attemptted = 0;
+var attempttedQues = 0;
 var score = 0;
+let attempted = document.getElementById('attempted')
+let scoreBoard = document.getElementById('score')
 var questions = null
+let index = 0;
+let next = document.getElementById('next')
+let prev = document.getElementById('prev')
+let progress = document.getElementById('progress')
+let currentProgress = document.getElementById('current-progress')
 const makeRequest = async () => {
-    let url = 'https://quizapi.io/api/v1/questions?apiKey=GJpmwF0WZUXozYXYjaQZF9187gwFj9bo54r84QLF&Limit=10&difficulty=easy'
+    let url = './data.json'
     const res = await fetch(url)
     questions = await res.json()
     total.textContent = questions.length
-    let index = 1;
-    for(let question of questions)
-    {
-        let q = new Question(question["id"],index++ +". "+ question["question"],question["answers"],question["correct_answers"],question["explanation"])
-    }
+    shuffle()
+    loadQuestion(index)
 }
 makeRequest()
+function loadQuestion(index)
+{
+    let question = questions[index]
+    let q = new Question(question["id"],index+1 +". "+ question["question"],question["options"],question["correctAnswer"],question["explanation"])
+}
+
+function updateScore()
+{
+    attempted.textContent = attempttedQues
+}
+function shuffle()
+{
+    for (let i = questions.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        let temp = questions[i];
+        questions[i] = questions[j];
+        questions[j] = temp;
+    }
+}
+next.addEventListener('click', () => {
+    quizPage.innerHTML=""
+    loadQuestion(++index)
+})
+
+prev.addEventListener('click', () => {
+    quizPage.innerHTML=""
+    loadQuestion(--index)
+})
+
+function updateProgress()
+{
+    let width = (attempttedQues / questions.length) * 100
+    currentProgress.style.width = width + '%'
+    currentProgress.style.height = '10px'
+}

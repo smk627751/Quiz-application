@@ -1,0 +1,183 @@
+[
+    {
+        "id": 1,
+        "question": "What does HTML stand for?",
+        "options": [
+        "Hyper Transfer Markup Language",
+        "Hyper Text Makeup Language",
+        "Hyperlink and Text Markup Language",
+        "Hyper Text Markup Language"
+        ],
+        "correctAnswer": 3,
+        "explanation": "HTML stands for Hyper Text Markup Language. It is the standard markup language for creating web pages."
+    },
+    {
+        "id": 2,
+        "question": "Which HTML tag is used for creating hyperlinks?",
+        "options": [
+        "<link>",
+        "<a>",
+        "<href>",
+        "<url>"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The <a> tag (anchor tag) is used for creating hyperlinks in HTML. It is commonly used to link to other web pages or resources."
+    },
+    {
+        "id": 3,
+        "question": "What is the purpose of the HTML <head> element?",
+        "options": [
+        "To define the main content of the page",
+        "To specify the page's metadata",
+        "To create a header for the page",
+        "To define a section of the page"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The <head> element is used to contain meta-information about the HTML document, such as title, links to stylesheets, and other metadata. It is not used for defining the main content of the page."
+    },
+    {
+        "id": 4,
+        "question": "Which HTML tag is used for creating an unordered list?",
+        "options": [
+        "<ul>",
+        "<ol>",
+        "<li>",
+        "<list>"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The <ul> tag is used for creating an unordered list in HTML. It is often used in conjunction with <li> (list item) elements to define the individual list items."
+    },
+    {
+        "id": 5,
+        "question": "In HTML, what does the acronym 'CSS' stand for?",
+        "options": [
+        "Counter Style Sheets",
+        "Cascading Style Sheets",
+        "Computer Style Sheets",
+        "Colorful Style Sheets"
+        ],
+        "correctAnswer": 1,
+        "explanation": "CSS stands for Cascading Style Sheets. It is a style sheet language used for describing the look and formatting of a document written in HTML."
+    },
+    {
+        "id": 6,
+        "question": "Which HTML tag is used to define the structure of an HTML document, including the title and metadata?",
+        "options": [
+          "<header>",
+          "<section>",
+          "<body>",
+          "<head>"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The <head> tag is used to define the structure of an HTML document, including the title, meta information, and links to external resources. It is not used for the main content of the page."
+      },
+      {
+        "id": 7,
+        "question": "What is the purpose of the HTML <meta> tag?",
+        "options": [
+          "To create a hyperlink",
+          "To define a list",
+          "To specify metadata about the document",
+          "To insert an image"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The <meta> tag is used to specify metadata about the HTML document, such as character set, description, keywords, and viewport settings for responsive design."
+      },
+      {
+        "id": 8,
+        "question": "Which attribute is used to provide alternative text for an image in HTML?",
+        "options": [
+          "alt",
+          "title",
+          "caption",
+          "description"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The 'alt' attribute is used to provide alternative text for an image in HTML. It is important for accessibility and is displayed if the image cannot be loaded."
+      },
+      {
+        "id": 9,
+        "question": "What does the acronym 'HTML5' refer to?",
+        "options": [
+          "Hypertext Markup Language 5",
+          "Hyper Transfer Markup Language 5",
+          "Hypertext and Text Markup Language 5",
+          "Hyper Text Markup Language version 5"
+        ],
+        "correctAnswer": 0,
+        "explanation": "HTML5 stands for Hypertext Markup Language 5. It is the latest version of HTML and includes new features such as native support for audio and video, and enhanced semantics."
+      },
+      {
+        "id": 10,
+        "question": "Which HTML tag is used for creating a line break?",
+        "options": [
+          "<br>",
+          "<lb>",
+          "<break>",
+          "<newline>"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The <br> tag is used for creating a line break in HTML. It is a self-closing tag and does not require a closing tag."
+      },
+      {
+        "id": 11,
+        "question": "Which HTML tag is used to define the main content of a document?",
+        "options": [
+          "<main>",
+          "<content>",
+          "<body>",
+          "<article>"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The <main> tag is used to define the main content of an HTML document. It should contain the central content unique to that document, excluding headers, footers, and sidebars."
+      },
+      {
+        "id": 12,
+        "question": "What is the purpose of the HTML <footer> element?",
+        "options": [
+          "To define a section of the page",
+          "To create a header for the page",
+          "To specify the page's metadata",
+          "To define the footer of the page"
+        ],
+        "correctAnswer": 3,
+        "explanation": "The <footer> element is used to define the footer of an HTML document. It typically contains metadata, copyright information, links to related documents, or other footer content."
+      },
+      {
+        "id": 13,
+        "question": "Which HTML attribute is used to specify the URL of the page the link goes to?",
+        "options": [
+          "src",
+          "href",
+          "link",
+          "url"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The 'href' attribute is used in HTML to specify the URL (Hyperlink Reference) of the page the link goes to. It is commonly used with the <a> (anchor) tag."
+      },
+      {
+        "id": 14,
+        "question": "In HTML, what is the purpose of the <nav> element?",
+        "options": [
+          "To define navigation links",
+          "To create a new page",
+          "To insert a navigation bar",
+          "To define a section of the page"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The <nav> element is used to define a set of navigation links in HTML. It is typically used for menus, navigation bars, or any other set of links that guide users to different parts of a website."
+      },
+      {
+        "id": 15,
+        "question": "Which HTML tag is used for defining an ordered list?",
+        "options": [
+          "<ol>",
+          "<ul>",
+          "<li>",
+          "<dl>"
+        ],
+        "correctAnswer": 0,
+        "explanation": "The <ol> tag is used for defining an ordered list in HTML. It is often used in conjunction with <li> (list item) elements to define the individual items in the list."
+      }
+]
+  

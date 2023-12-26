@@ -8,17 +8,23 @@
     <title>Quiz application</title>
 </head>
 <body>
-    <div id="score" class="score">
-        <span>You have scored</span>
-        <div class="scoreboard">
-            <span id="scored">0</span>
-            <span class="divide"></span>
-            <span id="total">0</span>
-        </div>
-    </div>
     <div class="header">
         <h1>Quiz application</h1>
+        <div class="score">
+            <div>
+                <span id="attempted">0</span>
+                <span>/</span>
+                <span id="total">0</span>
+            </div>
+            <div id="progress">
+                <div id="current-progress"></div>
+            </div>
+        </div>
     </div>
-    <div id="quiz_page" class="quiz_page"></div>
+    <div class="container">
+        <div id="quiz_page" class="quiz_page"></div>
+        <!-- <input id="prev" type="button" value="prev"> -->
+        <input id="next" type="button" value="next">
+    </div>
 </body>
 </html>
