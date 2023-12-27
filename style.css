@@ -44,6 +44,10 @@ body
 {
     filter: brightness(1.5);
 }
+#next:disabled
+{
+    background-color: #e5d5f6;
+}
 html::-webkit-scrollbar
 {
     width: 0px;
