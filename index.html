@@ -8,6 +8,12 @@
     <title>Quiz application</title>
 </head>
 <body>
+    <div id="scoreboard" class="scoreboard">
+        <span>You have scored</span>
+        <div class="scorebox">
+            <span id="score">0 / 0</div>
+        </div>
+    </div>
     <div class="header">
         <h1>Quiz application</h1>
         <div class="score">
@@ -23,8 +29,7 @@
     </div>
     <div class="container">
         <div id="quiz_page" class="quiz_page"></div>
-        <!-- <input id="prev" type="button" value="prev"> -->
-        <input id="next" type="button" value="next">
+        <input id="next" type="button" value="next" disabled>
     </div>
 </body>
 </html>

@@ -38,6 +38,7 @@ class Question{
                 this.markedAnswer = this.options[opt]
             }
             let label = document.createElement('label')
+            label.setAttribute('for',this.options[opt])
             label.textContent = this.options[opt]
             option.append(radio,label)
             optionsList.appendChild(option)
@@ -57,19 +58,24 @@ class Question{
         {
             return
         }
+        next.removeAttribute('disabled')
         attempttedQues++
+        updateProgress()
+        updateScore()
         let option = document.getElementById(this.markedElement)
         if(this.options[this.correctAnswer] == this.markedAnswer)
         {
             option.classList.add('correct')
             score++;
-            updateScore()
         }
-        else option.classList.add('wrong')
-        updateProgress()
+        else
+        {
+            option.classList.add('wrong')
+        }
         if(attempttedQues == questions.length)
         {
-            alert(score)
+            document.getElementById('score').textContent = `${score}/${questions.length}`
+            scoreBoard.style.display = 'flex'
         }
         let explanation = document.createElement('div')
         let span = document.createElement('span')
@@ -86,11 +92,10 @@ var total = document.getElementById('total')
 var attempttedQues = 0;
 var score = 0;
 let attempted = document.getElementById('attempted')
-let scoreBoard = document.getElementById('score')
+var scoreBoard = document.getElementById('scoreboard')
 var questions = null
 let index = 0;
-let next = document.getElementById('next')
-let prev = document.getElementById('prev')
+var next = document.getElementById('next')
 let progress = document.getElementById('progress')
 let currentProgress = document.getElementById('current-progress')
 const makeRequest = async () => {
@@ -124,11 +129,7 @@ function shuffle()
 next.addEventListener('click', () => {
     quizPage.innerHTML=""
     loadQuestion(++index)
-})
-
-prev.addEventListener('click', () => {
-    quizPage.innerHTML=""
-    loadQuestion(--index)
+    next.setAttribute('disabled','true')
 })
 
 function updateProgress()
